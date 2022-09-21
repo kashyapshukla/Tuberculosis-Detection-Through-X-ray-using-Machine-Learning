@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+          .input-group
+      {
+      padding: 12rem;
+      width:50%;
+
+
+      }
+      img {
+    vertical-align: middle;
+    border-style: none;
+    height: 421px;
+}
+
+
+    </style>
+    >
+</head>
+<body style="background-color:#deeaee;">
+<div>
+    <nav class="navbar navbar-light navbar-expand-lg bg-dark fixed-top ">
+
+        <div class="container-fluid">
+            <a class="navbar-brand" style="color:white;" href="#">Detect-TB</a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg"
+                 aria-labelledby="navbarOffcanvasLgLabel">
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item px-4">
+                            <a class="nav-link active" style="color:white;" aria-current="page"
+                               href="Index.html">Home</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link active" style="color:white;" href="Test_Yourself.html">Test yourself</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link active" style="color:white;" href="Prevention.html">Prevention</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link active" style="color:white;" href="About_Us.html">About us</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div>
+
+
+        <h1 align="center"
+            style="margin-top:3rem;margin-bottom:3rem;box-shadow: 5px 5px 4px 5px #888888;width:40%;margin-left:24rem;">
+            <b>Image Classfication</b></h1>
+        <div class="container">
+            <div class="row">
+                <p>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+                </p>
+
+                <div class="container">
+                    <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <h2><label class="control-label" for="pwd" style="padding-left:0.73rem;">Upload Your X-ray
+                                Image :</label></h2>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" placeholder="Hours Studied" name="my_image"
+                                       id="pwd">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+
+
+                        {% if prediction %}
+                        <img src="{{img_path}}" height="400px" width="400px">
+                        <h2> You are <i> {{prediction}} </i></h2>
+
+                        {% endif %}
+                    </form>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+     <footer class="bg-dark text-center text-white " style="margin-top:15rem;">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+</body>
+</html>
